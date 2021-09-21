@@ -287,8 +287,12 @@ class Penjualan extends BaseController
             if ($sql) {
             ?>
                 <script>
-                    alert('Data Pembayaran Berhasil DiSimpan!')
-                    window.location.href = "<?= base_url('penjualan/input'); ?>"
+                    if (confirm('Data Pembayaran Berhasi Disimpan \n CETAK STRUK ATAU TIDAK ?') == true) {
+                        window.open('<?= base_url('penjualan/print/' . $faktur_penjualan); ?>', 'Print Transaksi', 'width=500,height=700')
+                        window.location.href = "<?= base_url('penjualan/input'); ?>"
+                    } else {
+                        window.location.href = "<?= base_url('penjualan/input'); ?>"
+                    }
                 </script>
             <?php
             } else {
@@ -300,5 +304,16 @@ class Penjualan extends BaseController
 <?php
             }
         }
+    }
+
+    public function print($faktur_penjualan)
+    {
+        $data = [
+            'title' => 'Print Struk Penjualan',
+            'konventer' => $this->konverter,
+            'penjualanDetail' => $this->penjualandetailModel->ambilDataDetail($faktur_penjualan)
+        ];
+        // dd($data);
+        return view('penjualan/print', $data);
     }
 }
