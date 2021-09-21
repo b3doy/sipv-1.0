@@ -103,6 +103,26 @@ foreach ($penjualan as $penjualan) {
             e.preventDefault();
             pembayaran()
         });
+        $('#jumlah').keydown(function(e) {
+            if (e.keyCode == 27) {
+                e.preventDefault()
+                $('#barcode').focus()
+            }
+        })
+        $(this).keydown(function(e) {
+            if (e.keyCode == 27) {
+                e.preventDefault()
+                $('#barcode').focus()
+            }
+            if (e.keyCode == 115) {
+                e.preventDefault()
+                $('#buttonHapusTransaksi').click()
+            }
+            if (e.keyCode == 119) {
+                e.preventDefault()
+                $('#buttonSimpanTransaksi').click()
+            }
+        })
     });
 
     function pembayaran() {
@@ -120,6 +140,9 @@ foreach ($penjualan as $penjualan) {
             success: function(response) {
                 if (response.data) {
                     $('.viewmodalPembayaran').html(response.data).show()
+                    $('#pembayaran').on('shown.bs.modal', function(e) {
+                        $('#jumlah_uang').focus()
+                    })
                     $('#pembayaran').modal('show')
                 }
                 if (response.error) {

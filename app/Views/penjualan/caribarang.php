@@ -56,6 +56,7 @@
         $('#nama_barang').val(namaBarang)
         $('#cari-barang').on('hidden.bs.modal', function(e) {
             $('#barcode').focus()
+            cekBarcode()
         })
         $('#cari-barang').modal('hide')
     }
