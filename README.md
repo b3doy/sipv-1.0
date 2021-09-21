@@ -6,12 +6,8 @@ dibuat menggunakan Codeigniter 4,
 masih dalam proses dan masih berkembang,
 sistem ini dibuat untuk proses pembelajaran.
 
-/* 
-
-di upload ke github ini untuk memngingatkan diri sendiri jika lupa,
-dan tentunya sebagai backup juga.
-
-*/
+dikarenakan indikasi harus install ulang tools, maka app ini saya upload ke sini,
+tentunya sebagai backup juga.
 
 begitulah kira-kira.
 
