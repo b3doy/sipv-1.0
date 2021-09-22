@@ -335,15 +335,4 @@ class Penjualan extends BaseController
         // dd($data);
         return view('penjualan/data_penjualan', $data);
     }
-
-    public function harian()
-    {
-        $data = [
-            'title' => 'Data Penjualan Harian',
-            'penjualanDetail' => $this->penjualandetailModel->getPenjualanHarian(),
-            'jumlahBarang'  => $this->penjualandetailModel->getJumlahBarangHarian(),
-            'konverter' => $this->konverter
-        ];
-        return view('penjualan/harian', $data);
-    }
 }

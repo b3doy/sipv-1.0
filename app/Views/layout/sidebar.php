@@ -19,8 +19,14 @@
 
     <!-- sidebar Heading -->
 
-    <!-- Nav Item - User's Profile -->
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
 
+    <!-- Nav Item - User's Management -->
     <?php if (in_groups('Superuser') || in_groups('Admin')) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('user'); ?>">
@@ -28,13 +34,6 @@
                 <span>Users</span></a>
         </li>
     <?php endif; ?>
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -47,9 +46,9 @@
         </a>
         <div id="inventory" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-transparent py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
                 <a class="collapse-item" href="<?= base_url('kategori'); ?>"> Data Kategori</a>
                 <a class="collapse-item" href="<?= base_url('satuan'); ?>">Data Satuan</a>
+                <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
             </div>
         </div>
     </li>

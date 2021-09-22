@@ -260,7 +260,7 @@ echo $this->section('page-content');
                         drawBorder: false
                     },
                     ticks: {
-                        maxTicksLimit: 6
+                        maxTicksLimit: 6000
                     },
                     maxBarThickness: 25,
                 }],
