@@ -27,4 +27,9 @@ class PenjualanModel extends Model
     {
         return $this->db->table('penjualan')->selectMax('faktur_penjualan')->where('tanggal_penjualan', date('Y-m-d'))->get()->getRowArray()['faktur_penjualan'];
     }
+
+    public function getJumlahOmsetHarian()
+    {
+        return $this->db->table('penjualan')->select('*')->selectSum('total_bersih_penjualan', 'total')->groupBy('tanggal_penjualan')->get()->getResultArray();
+    }
 }

@@ -26,4 +26,24 @@ class PenjualandetailModel extends Model
         // return $this->db->table('penjualan_detail')->getWhere(['faktur_penjualan_detail' => $faktur_penjualan])->getResultArray();
         return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->join('penjualan', 'penjualan.faktur_penjualan = penjualan_detail.faktur_penjualan_detail')->where('faktur_penjualan_detail', $faktur_penjualan)->get()->getResultArray();
     }
+
+    public function getPenjualanBarang()
+    {
+        return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->join('penjualan', 'penjualan.faktur_penjualan = penjualan_detail.faktur_penjualan_detail')->selectSum('sub_total_penjualan_detail')->groupBy('nama_barang')->get()->getResultArray();
+    }
+    public function setMaxHargaJualDetail()
+    {
+        // return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->selectSum('sub_total_penjualan_detail')->get()->getRowArray();
+        return $this->db->table('penjualan_detail')->selectSum('sub_total_penjualan_detail')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->groupBy('barcode_penjualan_detail')->get()->getRowArray();
+    }
+
+    public function setJmlBarangTerjual()
+    {
+        return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->join('penjualan', 'penjualan.faktur_penjualan = penjualan_detail.faktur_penjualan_detail')->selectSum('jumlah_penjualan_detail')->groupBy('nama_barang')->get()->getResultArray();
+    }
+
+    public function setMaxJmlBarang()
+    {
+        return $this->db->table('penjualan_detail')->selectSum('jumlah_penjualan_detail')->groupBy('jumlah_penjualan_detail')->get()->getRowArray();
+    }
 }

@@ -316,4 +316,34 @@ class Penjualan extends BaseController
         // dd($data);
         return view('penjualan/print', $data);
     }
+
+    // ================================================================================================== //
+
+    public function dataPenjualan()
+    {
+        $data = [
+            'title' => 'Data Penjualan',
+            'penjualan' => $this->penjualanModel->getPenjualan(),
+            'penjualanHarian' => $this->penjualanModel->getJumlahOmsetHarian(),
+            'penjualanDetail' => $this->penjualandetailModel->getPenjualanDetail(),
+            'penjualanBarang' => $this->penjualandetailModel->getPenjualanBarang(),
+            'rowHargaJualMax' => $this->penjualandetailModel->setMaxHargaJualDetail(),
+            'jmlBarangTerjual' => $this->penjualandetailModel->setJmlBarangTerjual(),
+            'rowMaxJml' => $this->penjualandetailModel->setMaxJmlBarang(),
+
+        ];
+        // dd($data);
+        return view('penjualan/data_penjualan', $data);
+    }
+
+    public function harian()
+    {
+        $data = [
+            'title' => 'Data Penjualan Harian',
+            'penjualanDetail' => $this->penjualandetailModel->getPenjualanHarian(),
+            'jumlahBarang'  => $this->penjualandetailModel->getJumlahBarangHarian(),
+            'konverter' => $this->konverter
+        ];
+        return view('penjualan/harian', $data);
+    }
 }

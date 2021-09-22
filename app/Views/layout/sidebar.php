@@ -20,9 +20,7 @@
     <!-- sidebar Heading -->
 
     <!-- Nav Item - User's Profile -->
-    <!-- <div class="sidebar-heading">
-        User Profile
-    </div> -->
+
     <?php if (in_groups('Superuser') || in_groups('Admin')) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('user'); ?>">

@@ -25,6 +25,7 @@
         <div class="col-md-9">
             <div class="card" id="printPage">
                 <h1>Struk Pembayaran</h1>
+                <h3>sipV-1.0</h3>
                 <?php foreach ($penjualanDetail as $penjualan) {
                 } ?>
                 <h3>No Faktur : <?= $penjualan['faktur_penjualan']; ?></h3>
@@ -84,6 +85,8 @@
                         </tr>
                     </tbody>
                 </table>
+                <hr>
+                <p>Terima Kasih Telah Berbelanja di Tempat Kami.</p>
                 <button type="submit" class="btn btn-success btnprint noprint">Print</button>
             </div>
         </div>
