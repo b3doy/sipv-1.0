@@ -30,11 +30,11 @@
     <?php endif; ?>
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
-    </li>
+    </li> -->
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -47,9 +47,9 @@
         </a>
         <div id="inventory" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-transparent py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
                 <a class="collapse-item" href="<?= base_url('kategori'); ?>"> Data Kategori</a>
                 <a class="collapse-item" href="<?= base_url('satuan'); ?>">Data Satuan</a>
+                <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
             </div>
         </div>
     </li>

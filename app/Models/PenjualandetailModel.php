@@ -34,7 +34,7 @@ class PenjualandetailModel extends Model
     public function setMaxHargaJualDetail()
     {
         // return $this->db->table('penjualan_detail')->select('*')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->selectSum('sub_total_penjualan_detail')->get()->getRowArray();
-        return $this->db->table('penjualan_detail')->selectSum('sub_total_penjualan_detail')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->groupBy('barcode_penjualan_detail')->get()->getRowArray();
+        return $this->db->table('penjualan_detail')->selectSum('sub_total_penjualan_detail')->get()->getRowArray();
     }
 
     public function setJmlBarangTerjual()
