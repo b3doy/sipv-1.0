@@ -19,8 +19,14 @@
 
     <!-- sidebar Heading -->
 
-    <!-- Nav Item - User's Profile -->
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
 
+    <!-- Nav Item - User's Management -->
     <?php if (in_groups('Superuser') || in_groups('Admin')) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('user'); ?>">
