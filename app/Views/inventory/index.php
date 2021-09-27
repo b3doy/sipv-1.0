@@ -3,6 +3,13 @@
 echo $this->extend('layout/template');
 echo $this->section('page-content');
 
+// foreach ($kategori as $kategori) {
+//     # code...
+// }
+// foreach ($satuan as $satuan) {
+//     # code...
+// }
+
 ?>
 
 <div class="container mt-3">
@@ -10,9 +17,14 @@ echo $this->section('page-content');
         <div class="col">
             <h1>Inventory List</h1>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#tambah-Inventory">
-                <i class="fa fa-plus-circle"></i> Tambah Data
-            </button>
+            <?php
+            if ($kat == null || $sat == null) {
+                echo '<a href="' . base_url('/inventory/batal') . '" class="btn btn-primary my-4"><i class=" fa fa-plus-circle"></i> Tambah Data</a>';
+            } else {
+                echo '<button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#tambah-Inventory"><i class=" fa fa-plus-circle"></i> Tambah Data</button>';
+            }
+            ?>
+
             <table class="table table-hover" id="inventoryTable">
                 <thead>
                     <tr>

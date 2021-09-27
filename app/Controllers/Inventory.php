@@ -34,8 +34,41 @@ class Inventory extends BaseController
             'supplier' => $this->supplierModel->getSupplier(),
             'kategori' => $this->kategoriModel->getKategori(),
             'satuan' => $this->satuanModel->getSatuan(),
+            'kat'   => $this->kategoriModel->getKategoriTest(),
+            'sat'   => $this->satuanModel->getSatuanTest(),
         ];
+        // dd($data);
         return view('inventory/index', $data);
+    }
+
+    public function batal()
+    {
+?>
+        <script>
+            alert('Data KATEGORI atau Data SATUAN Masih Kosong! \n Silahkan Input Terlebih Dahulu Pada Menu KATEGORI dan SATUAN ! ');
+            window.location.href = "<?= base_url('/inventory/index'); ?>"
+        </script>
+    <?php
+    }
+
+    public function modalTambahInventory()
+    {
+    ?>
+        <script src="<?= base_url(); ?>/public/assets/js/jquery-3.0.6.js"></script>
+        <script>
+            $(document).ready(function() {
+                // if (confirm('TAMBAH DATA INVENTORY / BARANG ?') == true) {
+                $("confirm('TAMBAH DATA INVENTORY / BARANG ?')").on('click', function() {
+                    $('#tambah-Inventory').modal('show')
+                    window.location.href = "<?= base_url('/inventory/index'); ?>"
+                })
+
+            })
+            // if (confirm('TAMBAH DATA INVENTORY / BARANG ?') == true) {
+
+            // }
+        </script>
+        <?php
     }
 
     public function inventoryTable()
@@ -124,7 +157,7 @@ class Inventory extends BaseController
             'satuan_id'        => $this->request->getVar('satuan')
         ]);
         if ($sql) {
-?>
+        ?>
             <script>
                 alert('Data Inventory Berhasil Ditambahkan!')
                 window.location.href = "<?= base_url('inventory/index'); ?>"

@@ -288,7 +288,11 @@ class Penjualan extends BaseController
             ?>
                 <script>
                     if (confirm('Data Pembayaran Berhasi Disimpan \n CETAK STRUK ATAU TIDAK ?') == true) {
+                        // Jika Menggunakan Printer Non Thermal dengan Print Preview
                         window.open('<?= base_url('penjualan/print/' . $faktur_penjualan); ?>', 'Print Transaksi', 'width=500,height=700')
+
+                        // Jika Menggunakan Printer Thermal
+                        // alert('PRINT !!!!!!!!!!!!!!')
                         window.location.href = "<?= base_url('penjualan/input'); ?>"
                     } else {
                         window.location.href = "<?= base_url('penjualan/input'); ?>"

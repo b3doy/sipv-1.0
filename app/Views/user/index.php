@@ -20,6 +20,7 @@ echo $this->section('page-content');
                 <th>Email</th>
                 <th>No Handphone</th>
                 <th>Alamat</th>
+                <th>Role</th>
                 <th>Action</th>
             </thead>
             <tbody>
@@ -32,8 +33,9 @@ echo $this->section('page-content');
                         <td><?= $user->email; ?></td>
                         <td><?= $user->telpon; ?></td>
                         <td><?= $user->alamat; ?></td>
+                        <td><a href="<?= base_url('/user/' . $user->userid); ?>"><?= $user->name; ?></a></td>
                         <td>
-                            <form action="<?= base_url('/user/' . $user->id); ?>" method="POST" class="d-inline">
+                            <form action="<?= base_url('/user/' . $user->userid); ?>" method="POST" class="d-inline">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-sm btn-circle btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus User" onclick="return confirm('Anda Yakin Akan Menghapus User Ini?')"><i class="fa fa-trash"></i></button>
                             </form>

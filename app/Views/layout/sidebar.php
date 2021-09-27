@@ -20,14 +20,14 @@
     <!-- sidebar Heading -->
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
-    </li>
+    </li> -->
 
     <!-- Nav Item - User's Management -->
-    <?php if (in_groups('Superuser') || in_groups('Admin')) : ?>
+    <?php if (in_groups('Superuser')) : ?>
         <li class="nav-item">
             <a class="nav-link" href="<?= base_url('user'); ?>">
                 <i class="fas fa-fw fa-user"></i>
@@ -45,27 +45,31 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Nav Item - Inventory Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#inventory" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-pallet"></i>
-            <span>Inventory</span>
-        </a>
-        <div id="inventory" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-transparent py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('kategori'); ?>"> Data Kategori</a>
-                <a class="collapse-item" href="<?= base_url('satuan'); ?>">Data Satuan</a>
-                <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
+    <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Gudang')) : ?>
+        <!-- Nav Item - Inventory Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#inventory" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-pallet"></i>
+                <span>Inventory</span>
+            </a>
+            <div id="inventory" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-transparent py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="<?= base_url('kategori'); ?>"> Data Kategori</a>
+                    <a class="collapse-item" href="<?= base_url('satuan'); ?>">Data Satuan</a>
+                    <a class="collapse-item" href="<?= base_url('inventory'); ?>">Data Inventory</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    <?php endif; ?>
 
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('supplier'); ?>">
-            <i class="fas fa-people-carry"></i>
-            <span>Supplier</span>
-        </a>
-    </li>
+    <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Pembelian')) : ?>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('supplier'); ?>">
+                <i class="fas fa-people-carry"></i>
+                <span>Supplier</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('konsumen'); ?>">
@@ -85,8 +89,12 @@
         </a>
         <div id="penjualan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-transparent py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('penjualan'); ?>"> Penjualan</a>
-                <a class="collapse-item" href="<?= base_url('kategori'); ?>"> Pembelian</a>
+                <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Kasir')) : ?>
+                    <a class="collapse-item" href="<?= base_url('penjualan'); ?>"> Penjualan</a>
+                <?php endif; ?>
+                <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Pembelian')) : ?>
+                    <!-- <a class="collapse-item" href="<?= base_url('pembelian'); ?>"> Pembelian</a> -->
+                <?php endif; ?>
             </div>
         </div>
     </li>

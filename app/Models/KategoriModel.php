@@ -20,6 +20,11 @@ class KategoriModel extends Model
         return $this->find($id);
     }
 
+    public function getKategoriTest()
+    {
+        return $this->db->table('kategori')->select('id')->get()->getRow();
+    }
+
     public function getKategoriTable()
     {
         return $this->db->table('kategori')->select('*')->get()->getResult();

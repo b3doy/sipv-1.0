@@ -13,7 +13,7 @@ echo $this->section('page-content');
                     <h1>Detail Data Barang</h1>
                 </div>
                 <div class="col-md-2">
-                    <a href="<?= base_url('inventory'); ?>" class="btn btn-sm btn-secondary mt-3" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Kembali Ke Menu Sebelumnya"><i class="fa fa-undo"></i></a>
+                    <a href="<?= base_url('inventory'); ?>" class="btn btn-secondary btn-circle mt-3" role="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Kembali Ke Menu Sebelumnya"><i class="fa fa-undo"></i></a>
                 </div>
             </div>
             <div class="card">

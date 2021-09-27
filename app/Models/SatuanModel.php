@@ -20,6 +20,11 @@ class SatuanModel extends Model
         return $this->find($id);
     }
 
+    public function getSatuanTest()
+    {
+        return $this->db->table('satuan')->select('id')->get()->getRow();
+    }
+
     public function getSatuanTable()
     {
         return $this->db->table('satuan')->select('*')->get()->getResult();

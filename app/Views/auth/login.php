@@ -65,11 +65,11 @@
                                         <a class="small" href="<?= base_url('forgot') ?>"><?= lang('Auth.forgotYourPassword') ?></a>
                                     </div>
                                 <?php endif; ?>
-                                <?php if ($config->allowRegistration) : ?>
+                                <!-- <?php if ($config->allowRegistration) : ?>
                                     <div class="text-center">
                                         <a class="small" href="<?= base_url('register') ?>"><?= lang('Auth.needAnAccount') ?></a>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
                             </div>
                         </div>
                     </div>
