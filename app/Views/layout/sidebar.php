@@ -44,6 +44,22 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Pembelian')) : ?>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('supplier'); ?>">
+                <i class="fas fa-people-carry"></i>
+                <span>Supplier</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('konsumen'); ?>">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Konsumen</span>
+        </a>
+
+    </li>
 
     <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Gudang')) : ?>
         <!-- Nav Item - Inventory Collapse Menu -->
@@ -62,22 +78,6 @@
         </li>
     <?php endif; ?>
 
-    <?php if (in_groups('Superuser') || in_groups('Administrator') || in_groups('Admin-Pembelian')) : ?>
-        <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('supplier'); ?>">
-                <i class="fas fa-people-carry"></i>
-                <span>Supplier</span>
-            </a>
-        </li>
-    <?php endif; ?>
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('konsumen'); ?>">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Konsumen</span>
-        </a>
-
-    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 

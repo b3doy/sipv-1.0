@@ -77,18 +77,20 @@ class Penjualan extends BaseController
         $data = [];
         $no = 0;
         foreach ($list as $list) {
-            $no++;
-            $row = [];
-            $row[] = $no;
-            $row[] = $list->plu;
-            $row[] = $list->barcode;
-            $row[] = $list->nama_barang;
-            $row[] = $list->nama_kategori;
-            $row[] = $this->konverter->angka($list->stok);
-            $row[] = $this->konverter->rupiah($list->harga_jual);
-            $row[] = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" onclick=\"pilihItem('" . $list->barcode . "','" . $list->nama_barang . "')\">Pilih</button>";
+            if ($list->deleted_at == null) {
+                $no++;
+                $row = [];
+                $row[] = $no;
+                $row[] = $list->plu;
+                $row[] = $list->barcode;
+                $row[] = $list->nama_barang;
+                $row[] = $list->nama_kategori;
+                $row[] = $this->konverter->angka($list->stok);
+                $row[] = $this->konverter->rupiah($list->harga_jual);
+                $row[] = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" onclick=\"pilihItem('" . $list->barcode . "','" . $list->nama_barang . "')\">Pilih</button>";
 
-            $data[] = $row;
+                $data[] = $row;
+            }
         }
         $output = ['data' => $data];
         echo json_encode($output);

@@ -103,7 +103,7 @@ class Satuan extends BaseController
         } else {
         ?>
             <script>
-                alert('Gagal Menghapus Data Satuan!')
+                alert('Data Satuan Tidak Bisa Dihapus Dikarenakan Digunakan Oleh Data Inventory!')
                 window.location.href = '<?= base_url('satuan/index'); ?>'
             </script>
 <?php

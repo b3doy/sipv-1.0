@@ -81,7 +81,7 @@ class Konsumen extends BaseController
 
     public function update($id)
     {
-        $sql = $this->konsumenModel->update([
+        $sql = $this->konsumenModel->save([
             'id'                => $id,
             'kode_konsumen'     => $this->request->getVar('kode_konsumen'),
             'nama_konsumen'     => $this->request->getVar('nama_konsumen'),

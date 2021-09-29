@@ -103,7 +103,7 @@ class Kategori extends BaseController
         } else {
         ?>
             <script>
-                alert('Gagal Menghapus Data Kategori!')
+                alert('Kategori Tidak Bisa Dihapus Dikarenakan Digunakan Oleh Data Inventory!')
                 window.location.href = '<?= base_url('kategori/index'); ?>'
             </script>
 <?php
