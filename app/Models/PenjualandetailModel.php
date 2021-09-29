@@ -44,6 +44,6 @@ class PenjualandetailModel extends Model
 
     public function setMaxJmlBarang()
     {
-        return $this->db->table('penjualan_detail')->selectSum('jumlah_penjualan_detail')->groupBy('jumlah_penjualan_detail')->get()->getRowArray();
+        return $this->db->table('penjualan_detail')->selectSum('jumlah_penjualan_detail')->join('inventory', 'inventory.barcode = penjualan_detail.barcode_penjualan_detail')->groupBy('nama_barang')->get()->getRowArray();
     }
 }

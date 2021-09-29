@@ -364,7 +364,7 @@ echo $this->section('page-content');
                     ticks: {
                         min: 0,
                         max: <?= $rowMaxJml['jumlah_penjualan_detail']; ?>,
-                        maxTicksLimit: 5,
+                        maxTicksLimit: 50,
                         padding: 10,
                         // Include a dollar sign in the ticks
                         callback: function(value, index, values) {
