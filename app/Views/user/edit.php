@@ -18,7 +18,7 @@ echo $this->section('page-content')
             </div>
             <form action="<?= base_url('user/update/' . $users->userid); ?>" method="POST">
                 <?= csrf_field(); ?>
-                <input type="text" name="userid" value="<?= $users->userid; ?>">
+                <input type="hidden" name="userid" value="<?= $users->userid; ?>">
                 <div class="mb-3">
                     <label for="nama">Nama</label>
                     <input type="text" name="fullname" id="fullname" class="form-control" value="<?= $users->fullname; ?>" readonly>
